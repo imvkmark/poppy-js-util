@@ -3,8 +3,8 @@
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/imvkmark/poppy-js-util/blob/master/LICENSE)
 [![Build Status](https://travis-ci.org/imvkmark/poppy-js-util.svg?branch=master)](https://travis-ci.org/imvkmark/poppy-js-util)
 [![Coveralls](https://img.shields.io/coveralls/imvkmark/poppy-js-util.svg)](https://coveralls.io/github/imvkmark/poppy-js-util)
-[![npm](https://img.shields.io/badge/npm-0.1.0-orange.svg)](https://www.npmjs.com/package/@imvkmark/poppy-js-util)
-[![NPM downloads](http://img.shields.io/npm/dm/poppy-js-util.svg?style=flat-square)](http://www.npmtrends.com/@imvkmark/poppy-js-util)
+[![npm](https://img.shields.io/badge/npm-0.1.0-orange.svg)](https://www.npmjs.com/package/@popjs/util)
+[![NPM downloads](http://img.shields.io/npm/dm/poppy-js-util.svg?style=flat-square)](http://www.npmtrends.com/@popjs/util)
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/imvkmark/poppy-js-util.svg)](http://isitmaintained.com/project/imvkmark/poppy-js-util "Percentage of issues still open")
 
 Poppy Framework Js Util Packages
@@ -14,25 +14,25 @@ Poppy Framework Js Util Packages
 通过npm下载安装代码
 
 ```bash
-$ npm install --save @imvkmark/poppy-js-util
+$ npm install --save @popjs/util
 ```
 
 如果你是node环境
 
 ```js
-var poppyjs = require('@imvkmark/poppy-js-util');
+var poppyjs = require('@popjs/util');
 ```
 
 如果你是webpack等环境
 
 ```js
-import {isMobile} from '@imvkmark/poppy-js-util';
+import {isMobile} from '@popjs/util';
 ```
 
 如果你是requirejs环境
 
 ```js
-requirejs(['node_modules/@imvkmark/poppy-js-util/dist/index.aio.js'], function (base) {
+requirejs(['node_modules/@popjs/util/dist/index.aio.js'], function (base) {
     // xxx
 })
 ```
@@ -40,7 +40,7 @@ requirejs(['node_modules/@imvkmark/poppy-js-util/dist/index.aio.js'], function (
 如果你是浏览器环境
 
 ```html
-<script src="node_modules/@imvkmark/poppy-js-util/dist/index.aio.js"></script>
+<script src="node_modules/@popjs/util/dist/index.aio.js"></script>
 ```
 
 ## :bookmark_tabs: 文档
