@@ -1,6 +1,6 @@
 {
 	"name": "@imvkmark/poppy-js-util",
-	"version": "0.1.4",
+	"version": "0.1.5",
 	"description": "Poppy Js Framework Util Libaray",
 	"main": "dist/index.js",
 	"jsnext:main": "dist/index.esm.js",
