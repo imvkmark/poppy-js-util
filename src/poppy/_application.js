@@ -4,7 +4,7 @@
  * @param val 有值:设置; 无值: 获取; null, 删除;
  * @param {function} decoration
  */
-import { forEach } from 'lodash-es';
+import { each, forEach } from 'lodash-es';
 
 export const localStore = (key, val, decoration = function(key) {
     return key;
@@ -30,7 +30,7 @@ export const localStore = (key, val, decoration = function(key) {
     // 本地数据存储封装，没有过期时间限制，仅限于该页面的协议
     if (val === null) {
         if (typeof key === 'object') {
-            _.each(key, function(ele, idx) {
+            each(key, function(ele, idx) {
                 _localStorageOverflow(decoration(idx), ele); // 存储数据
             });
             return;
