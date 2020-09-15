@@ -65,3 +65,39 @@ export const uniqueId = function(prefix) {
     let _pre = ( typeof prefix == 'undefined' ) ? '' : prefix;
     return _pre + Math.floor(Math.random() * ( new Date() ).getTime());
 };
+
+
+/**
+ * 字符是否是数字的判断
+ * @param {string} param 字符参数
+ * @returns {boolean}
+ */
+export const isNumber = (param) => {
+    let regExp = /[^0-9]/;
+    return !regExp.test(param);
+};
+
+
+/**
+ * Debug Time
+ * @returns {string}
+ */
+export const debugTime = (tip = '') => {
+    let d = new Date();
+    return '[' + ( tip ? tip + ':' : '' ) + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds() + ' ' + d.getMilliseconds() + '] ';
+};
+
+
+/**
+ * 去除空白，包括换行和空格
+ * @param {string} str 字符
+ */
+export const removerBlank = (str) => {
+    //去掉所有的换行符
+    str = str.replace(/\r\n/g, '');
+    str = str.replace(/\n/g, '');
+    //去掉所有的空格（中文空格、英文空格都会被替换）
+    str = str.replace(/\s/g, '');
+    //输出转换后的字符串
+    return str;
+};

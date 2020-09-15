@@ -58,3 +58,32 @@ export const browser = () => {
         isWechat : !!userAgent.match(/micromessenger/)
     };
 };
+
+
+/**
+ * 获取域名信息
+ * @param url
+ * @returns {string}
+ */
+export const domain = (url) => {
+    let arrUrl = url.split('//');
+    let start = arrUrl[1].indexOf('/');
+    let relUrl = arrUrl[1].substring(start);//stop省略，截取从start开始到结尾的所有字符
+    if (relUrl.indexOf('?') !== -1) {
+        relUrl = relUrl.split('?')[0];
+    }
+    return relUrl;
+};
+
+
+/**
+ * 根据参数名获取对应的url参数
+ * @param {string} name 要取的值key
+ * @returns {string|null}
+ */
+export const queryString = (name) => {
+    let reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+    let r = window.location.search.substr(1).match(reg);
+    if (r != null) return unescape(r[2]);
+    return null;
+};

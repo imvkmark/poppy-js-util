@@ -54,3 +54,13 @@ export const exitFullScreen = function() {
         document.webkitExitFullscreen();
     }
 };
+
+
+/**
+ * 获取浏览器窗口尺寸，兼容所有浏览器方法
+ * @returns {number}
+ */
+export const windowHeight = () => {
+    return document.documentElement.clientHeight
+        || window.innerHeight || document.body.clientHeight;
+};
