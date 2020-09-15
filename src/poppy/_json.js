@@ -1,4 +1,4 @@
-import { trim } from 'lodash';
+import { trim } from 'lodash-es';
 
 /**
  * 字串转 json
