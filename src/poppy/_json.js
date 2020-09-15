@@ -5,7 +5,7 @@ import { trim } from 'lodash';
  * @param {string|object} resp
  * @returns {*}
  */
-let _toJson = function(resp) {
+export const toJson = function(resp) {
     let objResp;
     if (typeof resp === 'object') {
         objResp = resp;
@@ -18,5 +18,3 @@ let _toJson = function(resp) {
     }
     return objResp;
 };
-
-export const toJson = _toJson;
