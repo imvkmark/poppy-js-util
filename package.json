@@ -1,65 +1,69 @@
 {
-	"name": "@imvkmark/poppy-js-util",
-	"version": "0.1.5",
-	"description": "Poppy Js Framework Util Libaray",
-	"main": "dist/index.js",
-	"jsnext:main": "dist/index.esm.js",
-	"module": "dist/index.esm.js",
-	"sideEffects": false,
-	"scripts": {
-		"clean": "rimraf ./dist",
-		"test": "npm run lint && cross-env NODE_ENV=test nyc mocha",
-		"release": "npm test && npm run build && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags",
-		"lint": "eslint -c .eslintrc.js 'src/**/*.js'",
-		"lint:fix": "eslint --fix -c .eslintrc.js 'src/**/*.js' --fix",
-		"build:self": "rollup -c config/rollup.config.js",
-		"build:esm": "rollup -c config/rollup.config.esm.js",
-		"build:aio": "rollup -c config/rollup.config.aio.js",
-		"build:aio.min": "cross-env NODE_ENV=production npm run build:aio",
-		"build": "npm run clean && npm run build:self && npm run build:esm && npm run build:aio && npm run build:aio.min",
-		"coveralls": "nyc report --reporter=text-lcov | coveralls"
-	},
-	"author": "imvkmark",
-	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "git://github.com/imvkmark/poppy-js-util.git"
-	},
-	"bugs": {
-		"url": "https://github.com/imvkmark/poppy-js-util/issues"
-	},
-	"files": [
-		"/dist",
-		"*.d.ts"
-	],
-	"engines": {
-		"node": ">= 0.12.0"
-	},
-	"devDependencies": {
-		"@babel/cli": "^7.1",
-		"@babel/core": "^7.1.2",
-		"@babel/plugin-transform-runtime": "^7.1.0",
-		"@babel/preset-env": "^7.1.0",
-		"@babel/register": "7.*",
-		"@js-lib/cli": "^1.6.0",
-		"babel-plugin-istanbul": "6.0",
-		"coveralls": "3.1",
-		"cross-env": "^7",
-		"es5-shim": "^4.5",
-		"eslint": "^7",
-		"expect.js": "^0.3",
-		"mocha": "^8.1",
-		"nyc": "^15",
-		"rimraf": "^3",
-		"rollup": "^2.26",
-		"rollup-plugin-babel": "^4.0",
-		"rollup-plugin-commonjs": "^10",
-		"rollup-plugin-node-resolve": "^5.2",
-		"rollup-plugin-uglify": "^6",
-		"source-map-support": "^0.5"
-	},
-	"dependencies": {
-		"@babel/runtime": "^7.1.2",
-		"lodash-es": "^4.17.15"
-	}
+  "name": "@popjs/util",
+  "version": "0.1.19",
+  "description": "Poppy Js Framework Util Libaray",
+  "main": "dist/index.js",
+  "jsnext:main": "dist/index.esm.js",
+  "module": "dist/index.esm.js",
+  "sideEffects": false,
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "test": "npm run lint && cross-env NODE_ENV=test nyc mocha",
+    "release": "npm test && npm run build && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags",
+    "lint": "eslint -c .eslintrc.js 'src/**/*.js'",
+    "lint:fix": "eslint --fix -c .eslintrc.js 'src/**/*.js' --fix",
+    "build:self": "rollup -c config/rollup.config.js",
+    "build:esm": "rollup -c config/rollup.config.esm.js",
+    "build:aio": "rollup -c config/rollup.config.aio.js",
+    "build:aio.min": "cross-env NODE_ENV=production npm run build:aio",
+    "build": "npm run clean && npm run build:self && npm run build:esm && npm run build:aio && npm run build:aio.min",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls"
+  },
+  "author": "imvkmark",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/imvkmark/poppy-js-util.git"
+  },
+  "bugs": {
+    "url": "https://github.com/imvkmark/poppy-js-util/issues"
+  },
+  "files": [
+    "/dist",
+    "*.d.ts"
+  ],
+  "engines": {
+    "node": ">= 0.12.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1",
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/register": "7.*",
+    "@js-lib/cli": "^1.6.0",
+    "babel-plugin-istanbul": "6.0",
+    "coveralls": "3.1",
+    "cross-env": "^7",
+    "es5-shim": "^4.5",
+    "eslint": "^7",
+    "expect.js": "^0.3",
+    "mocha": "^8.1",
+    "nyc": "^15",
+    "rimraf": "^3",
+    "rollup": "^2.26",
+    "rollup-plugin-babel": "^4.0",
+    "rollup-plugin-commonjs": "^10",
+    "rollup-plugin-node-resolve": "^5.2",
+    "rollup-plugin-uglify": "^6",
+    "source-map-support": "^0.5"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.1.2",
+    "lodash-es": "^4.17.15"
+  },
+  "homepage": "https://github.com/imvkmark/poppy-js-util#readme",
+  "directories": {
+    "test": "test"
+  }
 }
