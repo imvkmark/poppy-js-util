@@ -21,14 +21,18 @@ export const isMobile = function(str) {
 
 /**
  * 生成随机字符
- * @param length
+ * @param {number|string} length 长度
+ * @param {boolean} use_case 是否
  * @returns {string}
  */
-export const random = function(length) {
+export const random = function(length = 16, use_case = false) {
     if (typeof length == 'undefined' || parseInt(length) === 0) {
-        length = 18;
+        length = 16;
     }
-    let chars = 'abcdefhjmnpqrstuvwxyz123456789ABCDEFGHJKLMNPQRSTUVWYXZ';
+    let chars = 'abcdefhjmnpqrstuvwxyz123456789';
+    if (use_case) {
+        chars += 'ABCDEFGHJKLMNPQRSTUVWYXZ';
+    }
     let str = '';
     for (let i = 0; i < length; i++) {
         str += chars.charAt(Math.floor(Math.random() * chars.length));
