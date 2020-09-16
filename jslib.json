@@ -1,11 +1,11 @@
 {
-    "name": "poppy-js-util",
-    "npmname": "@imvkmark/poppy-js-util",
-    "umdname": "@imvkmark/poppy-js-util",
-    "username": "imvkmark",
-    "type": "js",
-    "module": "umd,esm,commonjs",
-    "test": "mocha",
-    "lang": "zh",
-    "version": "1.6.0"
+	"name": "poppy-js-util",
+	"npmname": "@popjs/util",
+	"umdname": "@popjs/util",
+	"username": "imvkmark",
+	"type": "js",
+	"module": "umd,esm,commonjs",
+	"test": "mocha",
+	"lang": "zh",
+	"version": "1.6.0"
 }

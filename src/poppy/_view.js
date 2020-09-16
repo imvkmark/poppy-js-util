@@ -5,6 +5,12 @@
  * @returns {{width: *, height: *}}
  */
 export const viewport = function() {
+    if (typeof window === 'undefined' || typeof document === 'undefined') {
+        return {
+            width : 0,
+            height : 0
+        };
+    }
     let e = window,
         a = 'inner';
     if (!( 'innerWidth' in window )) {
@@ -61,6 +67,9 @@ export const exitFullScreen = function() {
  * @returns {number}
  */
 export const windowHeight = () => {
+    if (typeof document === 'undefined') {
+        return 0;
+    }
     return document.documentElement.clientHeight
         || window.innerHeight || document.body.clientHeight;
 };
