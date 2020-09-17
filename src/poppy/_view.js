@@ -29,7 +29,7 @@ export const viewport = function() {
  * 全屏
  * @param ele
  */
-export const fullScreen = function(ele) {
+export function fullScreen(ele) {
     let element;
     if (typeof ele == 'undefined') {
         element = document.documentElement;
@@ -45,13 +45,13 @@ export const fullScreen = function(ele) {
     } else if (element.msRequestFullscreen) {
         element.msRequestFullscreen();
     }
-};
+}
 
 
 /**
  * 退出全屏
  */
-export const exitFullScreen = function() {
+export function exitFullScreen() {
     if (document.exitFullscreen) {
         document.exitFullscreen();
     } else if (document.mozCancelFullScreen) {
@@ -59,7 +59,7 @@ export const exitFullScreen = function() {
     } else if (document.webkitExitFullscreen) {
         document.webkitExitFullscreen();
     }
-};
+}
 
 
 /**

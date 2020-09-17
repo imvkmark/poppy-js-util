@@ -4,7 +4,7 @@
  * @param  {object} params
  * @returns {*}
  */
-export const buildUrl = function(url, params = {}) {
+export function buildUrl(url, params = {}) {
     let str = '';
     for (let key in params) {
         str += key + '=' + params[key];
@@ -14,7 +14,7 @@ export const buildUrl = function(url, params = {}) {
     } else {
         return str;
     }
-};
+}
 
 
 /**
@@ -22,7 +22,7 @@ export const buildUrl = function(url, params = {}) {
  * @param str
  * @returns {boolean}
  */
-export const isUrl = function(str) {
+export function isUrl(str) {
     let pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
         '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
         '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
@@ -30,15 +30,14 @@ export const isUrl = function(str) {
         '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
         '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locater
     return pattern.test(str);
-};
+}
 
 
 /**
  * 返回浏览器环境
  * @returns {{msie: (boolean|boolean), isIe10: boolean, opera: boolean, safari: boolean, mozilla: (boolean|boolean), isWechat: boolean, version: string, isIe9: boolean, isIe8: boolean}}
- * @private
  */
-export const browser = () => {
+export const browser = function() {
     let userAgent;
     if (typeof window !== 'undefined') {
         userAgent = window.navigator.userAgent.toLowerCase();
@@ -65,7 +64,7 @@ export const browser = () => {
  * @param url
  * @returns {string}
  */
-export const domain = (url) => {
+export function domain(url) {
     let arrUrl = url.split('//');
     let start = arrUrl[1].indexOf('/');
     let relUrl = arrUrl[1].substring(start);//stop省略，截取从start开始到结尾的所有字符
@@ -73,7 +72,7 @@ export const domain = (url) => {
         relUrl = relUrl.split('?')[0];
     }
     return relUrl;
-};
+}
 
 
 /**
@@ -81,9 +80,9 @@ export const domain = (url) => {
  * @param {string} name 要取的值key
  * @returns {string|null}
  */
-export const queryString = (name) => {
+export function queryString(name) {
     let reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
     let r = window.location.search.substr(1).match(reg);
     if (r != null) return unescape(r[2]);
     return null;
-};
+}

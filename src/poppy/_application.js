@@ -6,9 +6,16 @@
  */
 import { each, forEach } from 'lodash-es';
 
-export const localStore = (key, val, decoration = function(key) {
+/**
+ * 设置获取Store 的内容
+ * @param {string|array} key
+ * @param val
+ * @param decoration
+ * @returns {string|any}
+ */
+export function localStore(key, val, decoration = function(key) {
     return key;
-}) => {
+}) {
     /**
      * localStorage内存溢出时，则清空后继续保存
      * @param {string} key 缓存key
@@ -56,7 +63,7 @@ export const localStore = (key, val, decoration = function(key) {
     } else {
         _localStorageOverflow(decoration(key), val);
     }
-};
+}
 
 
 /**
@@ -64,7 +71,7 @@ export const localStore = (key, val, decoration = function(key) {
  * @param key 对象, 批量设置
  * @param val 有值:设置; 无值: 获取; null, 删除;
  */
-export const sessionStore = (key, val) => {  // 本地数据存储封装，随页面回话结束而结束，仅限于该页面的协议
+export function sessionStore(key, val) {  // 本地数据存储封装，随页面回话结束而结束，仅限于该页面的协议
     if (val === null) {
         if (typeof key === 'object') {
             forEach(key, function(ele, idx) {
@@ -93,4 +100,4 @@ export const sessionStore = (key, val) => {  // 本地数据存储封装，随�
     } else {
         sessionStorage.setItem(key, val);
     }
-};
+}

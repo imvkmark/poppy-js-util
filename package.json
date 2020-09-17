@@ -1,6 +1,6 @@
 {
 	"name": "@popjs/util",
-	"version": "0.1.28",
+	"version": "0.2.0",
 	"description": "Poppy Js Framework Util Library",
 	"main": "dist/index.js",
 	"jsnext:main": "dist/index.esm.js",
@@ -19,10 +19,9 @@
 		"build:aio.min": "cross-env NODE_ENV=production npm run build:aio",
 		"build": "npm run clean && npm run build:self && npm run build:esm && npm run build:aio && npm run build:aio.min",
 		"coveralls": "nyc report --reporter=text-lcov | coveralls",
-		"declaration": "npx typescript src/**/*.js --declaration --allowJs --emitDeclarationOnly --outDir dist",
 		"taobao": "nrm use taobao",
 		"npm": "nrm use npm",
-		"docs": "node_modules/.bin/jsdoc --configure jsdoc.json --verbose"
+		"docs": "npx typescript src/**/*.js --declaration --allowJs --emitDeclarationOnly --outDir dist && node_modules/.bin/jsdoc --configure jsdoc.json --verbose -R README.md -r && git subtree push --prefix=docs/api origin gh-pages"
 	},
 	"author": "imvkmark",
 	"license": "MIT",

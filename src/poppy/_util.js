@@ -3,10 +3,10 @@
  * @param str
  * @returns {boolean}
  */
-export const isEmail = function(str) {
+export function isEmail(str) {
     let reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
     return reg.test(str);
-};
+}
 
 
 /**
@@ -14,10 +14,10 @@ export const isEmail = function(str) {
  * @param str
  * @returns {boolean|Array|{index: number, input: string}}
  */
-export const isMobile = function(str) {
+export function isMobile(str) {
     let phone_number = str.replace(/\(|\)|\s+|-/g, '');
     return phone_number.length > 10 && phone_number.match(/^1[3-9][0-9]\d{4,8}$/);
-};
+}
 
 /**
  * 生成随机字符
@@ -25,7 +25,7 @@ export const isMobile = function(str) {
  * @param {boolean} use_case 是否
  * @returns {string}
  */
-export const random = function(length = 16, use_case = false) {
+export function random(length = 16, use_case = false) {
     if (typeof length == 'undefined' || parseInt(length) === 0) {
         length = 16;
     }
@@ -38,7 +38,7 @@ export const random = function(length = 16, use_case = false) {
         str += chars.charAt(Math.floor(Math.random() * chars.length));
     }
     return str;
-};
+}
 
 
 /**
@@ -46,14 +46,14 @@ export const random = function(length = 16, use_case = false) {
  * check for device touch support
  * @returns {boolean}
  */
-export const isTouchDevice = function() {
+export function isTouchDevice() {
     try {
         document.createEvent('TouchEvent');
         return true;
     } catch (e) {
         return false;
     }
-};
+}
 
 
 /**
@@ -61,7 +61,7 @@ export const isTouchDevice = function() {
  * @param prefix
  * @returns {string}
  */
-export const uniqueId = function(prefix) {
+export function uniqueId(prefix) {
     let _pre = ( typeof prefix == 'undefined' ) ? '' : prefix;
     return _pre + Math.floor(Math.random() * ( new Date() ).getTime());
 };
@@ -72,27 +72,27 @@ export const uniqueId = function(prefix) {
  * @param {string} param 字符参数
  * @returns {boolean}
  */
-export const isNumber = (param) => {
+export function isNumber(param) {
     let regExp = /[^0-9]/;
     return !regExp.test(param);
-};
+}
 
 
 /**
  * Debug Time
  * @returns {string}
  */
-export const debugTime = (tip = '') => {
+export function debugTime(tip = '') {
     let d = new Date();
     return '[' + ( tip ? tip + ':' : '' ) + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds() + ' ' + d.getMilliseconds() + '] ';
-};
+}
 
 
 /**
  * 去除空白，包括换行和空格
  * @param {string} str 字符
  */
-export const removerBlank = (str) => {
+export function removerBlank(str) {
     //去掉所有的换行符
     str = str.replace(/\r\n/g, '');
     str = str.replace(/\n/g, '');
@@ -100,4 +100,4 @@ export const removerBlank = (str) => {
     str = str.replace(/\s/g, '');
     //输出转换后的字符串
     return str;
-};
+}

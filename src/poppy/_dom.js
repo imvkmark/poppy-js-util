@@ -2,7 +2,7 @@
  * 方便添加维护类
  * @returns {{hasClass: *, addClass: *, removeClass: *, toggleClass: toggleClass, has: *, add: *, remove: *, toggle: toggleClass}}
  */
-export const classie = function() {
+export function classie() {
     function classReg(className) {
         return new RegExp('(^|\\s+)' + className + '(\\s+|$)');
     }
@@ -42,14 +42,14 @@ export const classie = function() {
 
     return {
         // full names
-        hasClass    : hasClass,
-        addClass    : addClass,
+        hasClass : hasClass,
+        addClass : addClass,
         removeClass : removeClass,
         toggleClass : toggleClass,
         // short names
-        has         : hasClass,
-        add         : addClass,
-        remove      : removeClass,
-        toggle      : toggleClass
+        has : hasClass,
+        add : addClass,
+        remove : removeClass,
+        toggle : toggleClass
     };
-};
+}

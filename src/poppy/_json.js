@@ -5,7 +5,7 @@ import { trim } from 'lodash-es';
  * @param {string|object} resp
  * @returns {*}
  */
-export const toJson = function(resp) {
+export function toJson(resp) {
     let objResp;
     if (typeof resp === 'object') {
         objResp = resp;
@@ -17,4 +17,4 @@ export const toJson = function(resp) {
         }
     }
     return objResp;
-};
+}
