@@ -1,5 +1,4 @@
 var babel = require('rollup-plugin-babel');
-
 var pkg = require('../package.json');
 
 var version = pkg.version;
@@ -8,7 +7,7 @@ var banner =
     `/*!
  * ${pkg.name} ${version} (https://github.com/imvkmark/poppy-js-util)
  * API https://github.com/imvkmark/poppy-js-util/blob/master/doc/api.md
- * Copyright 2017-${( new Date ).getFullYear()} imvkmark. All Rights Reserved
+ * Copyright 2020-${( new Date ).getFullYear()} imvkmark. All Rights Reserved
  * Licensed under MIT (https://github.com/imvkmark/poppy-js-util/blob/master/LICENSE)
  */
 `;

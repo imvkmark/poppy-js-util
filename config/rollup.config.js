@@ -1,7 +1,7 @@
 // rollup.config.js
 // commonjs
 var common = require('./rollup.js');
-
+var copy = require('rollup-plugin-copy');
 module.exports = {
     input : 'src/index.js',
     output : {
@@ -12,6 +12,11 @@ module.exports = {
         banner : common.banner
     },
     plugins : [
-        common.getCompiler()
+        common.getCompiler(),
+        copy({
+            targets : [
+                {src : 'src/less', dest : 'dist'}
+            ]
+        })
     ]
 };
