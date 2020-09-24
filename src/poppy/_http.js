@@ -60,6 +60,29 @@ export const browser = function() {
 
 
 /**
+ * 判定是否在 WebView 内
+ * @returns {boolean|boolean}
+ */
+export const isInWebView = function() {
+    let ua = navigator.userAgent.toLowerCase();
+    if (ua.match(/MicroMessenger/i) !== null) { // 微信浏览器判断
+        return false;
+    } else if (ua.match(/QQ/i) !== null) { // QQ浏览器判断
+        return false;
+    } else if (ua.match(/WeiBo/i) !== null) {
+        return false;
+    } else {
+        if (ua.match(/Android/i) != null) {
+            return ua.match(/browser/i) == null;
+        } else if (ua.match(/iPhone/i) != null) {
+            return ua.match(/safari/i) == null;
+        } else {
+            return ( ua.match(/macintosh/i) == null && ua.match(/windows/i) == null );
+        }
+    }
+};
+
+/**
  * 获取域名信息
  * @param url
  * @returns {string}
@@ -85,4 +108,69 @@ export function queryString(name) {
     let r = window.location.search.substr(1).match(reg);
     if (r != null) return unescape(r[2]);
     return null;
+}
+
+
+/**
+ * 解析url，分析是否是分享订单，如果是展示弹窗
+ * @param {string} url 当前网址url
+ */
+export function parseQueryString(url) {
+    let obj = {},
+        kv,
+        key,
+        value;
+    let paraString = url.substring(url.indexOf('?') + 1, url.length).split('&');
+    for (let i in paraString) {
+        kv = paraString[i].split('=');
+        key = kv[0];
+        value = kv[1];
+        obj[key] = value;
+    }
+    return obj;
+}
+
+
+/**
+ * 解析 URl 地址
+ * @param str
+ * @param component
+ * @returns {*}
+ */
+export function parseUrl(str, component) {
+    let key = ['source', 'scheme', 'authority', 'userInfo', 'user', 'pass', 'host', 'port', 'relative', 'path', 'directory', 'file', 'query', 'fragment'],
+        ini = ( this.php_js && this.php_js.ini ) || {},
+        mode = ( ini['phpjs.parse_url.mode'] &&
+            ini['phpjs.parse_url.mode'].local_value ) || 'php',
+        parser = {
+            php : /^(?:([^:/?#]+):)?(?:\/\/(?:(?:(?:([^:@]*):?([^:@]*))?@)?([^:/?#]*)(?::(\d*))?))?(?:((?:(?:[^?#/]*\/)*)(?:[^?#]*))(?:\?([^#]*))?(?:#(.*))?)/,
+            strict : /^(?:([^:/?#]+):)?(?:\/\/((?:(([^:@]*):?([^:@]*))?@)?([^:/?#]*)(?::(\d*))?))?((((?:[^?#/]*\/)*)([^?#]*))(?:\?([^#]*))?(?:#(.*))?)/,
+            loose : /^(?:(?![^:@]+:[^:@/]*@)([^:/?#.]+):)?(?:\/\/\/?)?((?:(([^:@]*):?([^:@]*))?@)?([^:/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#/]*\.[^?#/.]+(?:[?#]|$)))*\/?)?([^?#/]*))(?:\?([^#]*))?(?:#(.*))?)/ // Added one optional slash to post-scheme to catch file:/// (should restrict this)
+        };
+
+    let m = parser[mode].exec(str),
+        uri = {},
+        i = 14;
+    while (i--) {
+        if (m[i]) {
+            uri[key[i]] = m[i];
+        }
+    }
+
+    if (component) {
+        return uri[component.replace('PHP_URL_', '').toLowerCase()];
+    }
+    if (mode !== 'php') {
+        let name = ( ini['phpjs.parse_url.queryKey'] &&
+            ini['phpjs.parse_url.queryKey'].local_value ) || 'queryKey';
+        parser = /(?:^|&)([^&=]*)=?([^&]*)/g;
+        uri[name] = {};
+        uri[key[12]].replace(parser, function($0, $1, $2) {
+            if ($1) {
+                uri[name][$1] = $2;
+            }
+        });
+    }
+    delete uri.source;
+    return uri;
 }
