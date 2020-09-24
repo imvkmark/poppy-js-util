@@ -37,7 +37,7 @@ export function isUrl(str) {
  * 返回浏览器环境
  * @returns {{msie: (boolean|boolean), isIe10: boolean, opera: boolean, safari: boolean, mozilla: (boolean|boolean), isWechat: boolean, version: string, isIe9: boolean, isIe8: boolean}}
  */
-export const browser = function() {
+export function browser() {
     let userAgent;
     if (typeof window !== 'undefined') {
         userAgent = window.navigator.userAgent.toLowerCase();
@@ -63,7 +63,7 @@ export const browser = function() {
  * 判定是否在 WebView 内
  * @returns {boolean|boolean}
  */
-export const isInWebView = function() {
+export function isInWebView() {
     let ua = navigator.userAgent.toLowerCase();
     if (ua.match(/MicroMessenger/i) !== null) { // 微信浏览器判断
         return false;
@@ -80,7 +80,7 @@ export const isInWebView = function() {
             return ( ua.match(/macintosh/i) == null && ua.match(/windows/i) == null );
         }
     }
-};
+}
 
 /**
  * 获取域名信息
