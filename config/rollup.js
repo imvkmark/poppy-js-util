@@ -7,7 +7,7 @@ var banner =
     `/*!
  * ${pkg.name} ${version} (https://github.com/dadi-cn/popjs-util)
  * API https://github.com/dadi-cn/popjs-util/blob/master/doc/api.md
- * Copyright 2020-${( new Date ).getFullYear()} imvkmark. All Rights Reserved
+ * Copyright 2020-${( new Date ).getFullYear()} dadi-cn. All Rights Reserved
  * Licensed under MIT (https://github.com/dadi-cn/popjs-util/blob/master/LICENSE)
  */
 `;
