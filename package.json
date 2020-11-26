@@ -27,10 +27,10 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "git://github.com/imvkmark/poppy-js-util.git"
+		"url": "git://github.com/dadi-cn/popjs-util.git"
 	},
 	"bugs": {
-		"url": "https://github.com/imvkmark/poppy-js-util/issues"
+		"url": "https://github.com/dadi-cn/popjs-util/issues"
 	},
 	"files": [
 		"/dist",
@@ -72,7 +72,7 @@
 		"@babel/runtime": "^7.1.2",
 		"lodash-es": "^4.17.15"
 	},
-	"homepage": "https://github.com/imvkmark/poppy-js-util#readme",
+	"homepage": "https://github.com/dadi-cn/popjs-util#readme",
 	"directories": {
 		"test": "test"
 	}

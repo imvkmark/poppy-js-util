@@ -5,10 +5,10 @@ var version = pkg.version;
 
 var banner =
     `/*!
- * ${pkg.name} ${version} (https://github.com/imvkmark/poppy-js-util)
- * API https://github.com/imvkmark/poppy-js-util/blob/master/doc/api.md
+ * ${pkg.name} ${version} (https://github.com/dadi-cn/popjs-util)
+ * API https://github.com/dadi-cn/popjs-util/blob/master/doc/api.md
  * Copyright 2020-${( new Date ).getFullYear()} imvkmark. All Rights Reserved
- * Licensed under MIT (https://github.com/imvkmark/poppy-js-util/blob/master/LICENSE)
+ * Licensed under MIT (https://github.com/dadi-cn/popjs-util/blob/master/LICENSE)
  */
 `;
 
