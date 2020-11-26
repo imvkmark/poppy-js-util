@@ -56,7 +56,7 @@ export function browser() {
         isIe10 : !!userAgent.match(/msie 10.0/),
         isWechat : !!userAgent.match(/micromessenger/)
     };
-};
+}
 
 
 /**

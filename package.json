@@ -21,7 +21,7 @@
 		"coveralls": "nyc report --reporter=text-lcov | coveralls",
 		"taobao": "nrm use taobao",
 		"npm": "nrm use npm",
-		"docs": "npx typescript src/**/*.js --declaration --allowJs --emitDeclarationOnly --outDir dist && node_modules/.bin/jsdoc --configure jsdoc.json --verbose -R README.md -r && git subtree push --prefix=docs/api origin gh-pages"
+		"docs": "npx tsc src/**/*.js --declaration --allowJs --emitDeclarationOnly --outDir dist && node_modules/.bin/jsdoc --configure jsdoc.json --verbose -R README.md -r && git subtree push --prefix=docs/api origin gh-pages"
 	},
 	"author": "imvkmark",
 	"license": "MIT",

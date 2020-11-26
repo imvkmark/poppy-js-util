@@ -64,7 +64,7 @@ export function isTouchDevice() {
 export function uniqueId(prefix) {
     let _pre = ( typeof prefix == 'undefined' ) ? '' : prefix;
     return _pre + Math.floor(Math.random() * ( new Date() ).getTime());
-};
+}
 
 
 /**
