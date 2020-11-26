@@ -1,6 +1,6 @@
 # @popjs/util
 
-[poppy-js-util](https://github.com/dadi-cn/popjs-util)
+[popjs-util](https://github.com/dadi-cn/popjs-util)
 
 
 [![](https://img.shields.io/badge/Powered%20by-jslib%20base-brightgreen.svg)](https://github.com/yanhaijing/jslib-base)
@@ -11,7 +11,7 @@
 
 Poppy Framework Js Util Packages
 
-文档 : [中文文档](https://imvkmark.github.io/poppy-js-util/index.html)
+文档 : [中文文档](https://dadi-cn.github.io/popjs-util/index.html)
 
 
 ## 使用者指南
