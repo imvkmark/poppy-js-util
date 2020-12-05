@@ -88,6 +88,16 @@ export function debugTime(tip = '') {
 }
 
 
+export function isAndroid() {
+    const ua = window.navigator.userAgent;
+    return ( ua.indexOf('Android') > -1 || ua.indexOf('Adr') > -1 );
+}
+
+export function isIOS() {
+    const ua = window.navigator.userAgent;
+    return !!ua.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+}
+
 /**
  * 去除空白，包括换行和空格
  * @param {string} str 字符

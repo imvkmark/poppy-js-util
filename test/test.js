@@ -1,20 +1,47 @@
-import { domain } from '../src';
-
 const expect = require('expect.js');
 
 // js 测试源文件
-const {isUrl, buildUrl, browser} = require('../src/index.js');
+const {browser, isUrl, buildUrl, domain} = require('../src/index.js');
+const {isAndroid, isIOS} = require('../src/index.js');
+
 
 describe('单元测试', function() {
     this.timeout(1000);
 
-    describe.skip('#viewport', function() {
+    describe('浏览器', function() {
+        it('浏览器不是 微信 浏览器', function() {
+            expect(browser.isWechat).to.equal(false);
+        });
+        it('浏览器不是 Safri 浏览器', function() {
+            expect(browser.safari).to.equal(false);
+        });
+        it('浏览器不是 Opera 浏览器', function() {
+            expect(browser.opera).to.equal(false);
+        });
+        it('浏览器不是 IE 浏览器', function() {
+            expect(browser.msie).to.equal(false);
+        });
+        it('浏览器不是 mozilla 浏览器', function() {
+            expect(browser.mozilla).to.equal(false);
+        });
+        it('浏览器不是 mozilla 浏览器', function() {
+            expect(browser.mozilla).to.equal(false);
+        });
+        it('浏览器版本号是 ' + browser.version, function() {
+            expect(browser.version).to.be.a('string');
+        });
+    });
+
+    describe('Util 工具', function() {
+        it('系统是 Android', function() {
+            expect(isAndroid()).to.equal(true);
+        });
+        it('系统不是 iOS', function() {
+            expect(isIOS()).to.equal(false);
+        });
     });
 
     describe('Http', function() {
-        it('Browser', function() {
-            expect(browser.isWechat).to.equal(false);
-        });
 
         it('Url', function() {
             expect(isUrl('http://www.baidu.com')).to.equal(true);
