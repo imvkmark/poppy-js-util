@@ -9,20 +9,20 @@ describe('单元测试', function() {
     this.timeout(1000);
 
     describe('浏览器', function() {
+        it('浏览器Agent : ' + window.navigator.userAgent, function() {
+            expect(window.navigator.userAgent).to.be.a('string');
+        });
         it('浏览器不是 微信 浏览器', function() {
             expect(browser.isWechat).to.equal(false);
         });
-        it('浏览器不是 Safri 浏览器', function() {
-            expect(browser.safari).to.equal(false);
+        it('浏览器不是 Chrome 浏览器', function() {
+            expect(browser.chrome).to.equal(false);
         });
         it('浏览器不是 Opera 浏览器', function() {
             expect(browser.opera).to.equal(false);
         });
         it('浏览器不是 IE 浏览器', function() {
             expect(browser.msie).to.equal(false);
-        });
-        it('浏览器不是 mozilla 浏览器', function() {
-            expect(browser.mozilla).to.equal(false);
         });
         it('浏览器不是 mozilla 浏览器', function() {
             expect(browser.mozilla).to.equal(false);
@@ -36,8 +36,8 @@ describe('单元测试', function() {
         it('系统是 Android', function() {
             expect(isAndroid()).to.equal(true);
         });
-        it('系统不是 iOS', function() {
-            expect(isIOS()).to.equal(false);
+        it('系统是 iOS', function() {
+            expect(isIOS()).to.equal(true);
         });
     });
 

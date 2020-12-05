@@ -88,11 +88,19 @@ export function debugTime(tip = '') {
 }
 
 
+/**
+ * 是否是 Android 系统
+ * @returns {boolean}
+ */
 export function isAndroid() {
     const ua = window.navigator.userAgent;
     return ( ua.indexOf('Android') > -1 || ua.indexOf('Adr') > -1 );
 }
 
+/**
+ * 是否是 ios 系统
+ * @returns {boolean}
+ */
 export function isIOS() {
     const ua = window.navigator.userAgent;
     return !!ua.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
