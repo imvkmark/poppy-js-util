@@ -22,7 +22,8 @@
 		"taobao": "nrm use taobao",
 		"npm": "nrm use npm",
 		"php-serve": "php -S 0.0.0.0:8888 -t ./",
-		"docs": "npx tsc src/**/*.js --declaration --allowJs --emitDeclarationOnly --outDir dist && node_modules/.bin/jsdoc --configure jsdoc.json --verbose -R README.md -r && git subtree push --prefix=docs/api origin gh-pages"
+		"doc": "npx tsc src/**/*.js --declaration --allowJs --emitDeclarationOnly --outDir dist && node_modules/.bin/jsdoc --configure jsdoc.json --verbose -R README.md -r",
+		"gh-pages": "git subtree push --prefix=docs/api origin gh-pages"
 	},
 	"author": "imvkmark",
 	"license": "MIT",
