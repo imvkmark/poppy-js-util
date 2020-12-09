@@ -1,6 +1,6 @@
 {
 	"name": "@popjs/util",
-	"version": "0.2.7",
+	"version": "0.2.8",
 	"description": "Poppy Js Framework Util Library",
 	"main": "dist/index.js",
 	"jsnext:main": "dist/index.esm.js",
