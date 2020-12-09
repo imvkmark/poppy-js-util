@@ -107,6 +107,14 @@ export function isIOS() {
 }
 
 /**
+ * 判定浏览器是否是桌面端
+ * @returns {boolean}
+ */
+export function isDesktop() {
+    return !/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent);
+}
+
+/**
  * 去除空白，包括换行和空格
  * @param {string} str 字符
  */

@@ -2,7 +2,7 @@ const expect = require('expect.js');
 
 // js 测试源文件
 const {browser, isUrl, buildUrl, domain} = require('../src/index.js');
-const {isAndroid, isIOS} = require('../src/index.js');
+const {isAndroid, isIOS, isDesktop} = require('../src/index.js');
 
 
 describe('单元测试', function() {
@@ -24,10 +24,16 @@ describe('单元测试', function() {
         it('浏览器不是 IE 浏览器', function() {
             expect(browser.msie).to.equal(false);
         });
+        it('浏览器不是 Edge 浏览器', function() {
+            expect(browser.edge).to.equal(false);
+        });
         it('浏览器不是 mozilla 浏览器', function() {
             expect(browser.mozilla).to.equal(false);
         });
         it('浏览器版本号是 ' + browser.version, function() {
+            expect(browser.version).to.be.a('string');
+        });
+        it('浏览器是桌面客户端', function() {
             expect(browser.version).to.be.a('string');
         });
     });
@@ -38,6 +44,9 @@ describe('单元测试', function() {
         });
         it('系统是 iOS', function() {
             expect(isIOS()).to.equal(true);
+        });
+        it('浏览器是手机客户端', function() {
+            expect(isDesktop()).to.equal(false);
         });
     });
 

@@ -34,8 +34,8 @@ export function isUrl(str) {
 
 
 /**
- * 返回浏览器环境
- * @returns {{msie: (boolean|boolean), isIe10: boolean, opera: boolean, safari: boolean, mozilla: (boolean|boolean), isWechat: boolean, version: string, isIe9: boolean, isIe8: boolean}}
+ *
+ * @returns {{msie: boolean, opera: boolean, chrome: boolean, edge: boolean, mozilla: boolean, isWechat: boolean, version: string | number | string}}
  */
 export function browser() {
     let userAgent;
@@ -50,11 +50,9 @@ export function browser() {
         chrome : /chrome/.test(userAgent),
         opera : /opera/.test(userAgent),
         msie : /msie/.test(userAgent) && !/opera/.test(userAgent),
+        edge : /edg/.test(userAgent),
         mozilla : /mozilla/.test(userAgent) && !/(compatible|webkit)/.test(userAgent),
-        isIe8 : !!userAgent.match(/msie 8.0/),
-        isIe9 : !!userAgent.match(/msie 9.0/),
-        isIe10 : !!userAgent.match(/msie 10.0/),
-        isWechat : !!userAgent.match(/micromessenger/)
+        isWechat : !!userAgent.match(/micromessenger/),
     };
 }
 
