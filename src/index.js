@@ -9,6 +9,7 @@ export {
     isEmail, isMobile, isTouchDevice, random, uniqueId, debugTime, isNumber, removerBlank, isAndroid, isIOS, isDesktop
 } from './poppy/_util.js';
 export { fullScreen, exitFullScreen } from './poppy/_view.js';
+export { toFloat } from './poppy/_math.js';
 
 export const browser = _browser();
 export const name = '@popjs/util';

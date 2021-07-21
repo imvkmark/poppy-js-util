@@ -1,7 +1,7 @@
 const expect = require('expect.js');
 
 // js 测试源文件
-const {browser, isUrl, buildUrl, domain} = require('../src/index.js');
+const {browser, isUrl, buildUrl, domain, toFloat} = require('../src/index.js');
 const {isAndroid, isIOS, isDesktop} = require('../src/index.js');
 
 
@@ -35,6 +35,13 @@ describe('单元测试', function() {
         });
         it('浏览器是桌面客户端', function() {
             expect(browser.version).to.be.a('string');
+        });
+    });
+
+    describe('Math', function() {
+        it('toFloat', function() {
+            expect(toFloat('haha', 0)).to.equal(0.00);
+            expect(toFloat('0.235', 2)).to.equal(0.23);
         });
     });
 

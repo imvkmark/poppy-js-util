@@ -2,7 +2,6 @@
 
 [popjs-util](https://github.com/dadi-cn/popjs-util)
 
-
 [![](https://img.shields.io/badge/Powered%20by-jslib%20base-brightgreen.svg)](https://github.com/yanhaijing/jslib-base)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/dadi-cn/popjs-util/blob/master/LICENSE)
 [![Build Status](https://travis-ci.org/@popjs/util.svg?branch=master)](https://travis-ci.org/dadi-cn/popjs-util)
@@ -12,7 +11,6 @@
 Poppy Framework Js Util Packages
 
 文档 : [中文文档](https://dadi-cn.github.io/popjs-util/index.html)
-
 
 ## 使用者指南
 
@@ -31,13 +29,13 @@ var poppyjs = require('@popjs/util');
 如果你是webpack等环境
 
 ```js
-import {isMobile} from '@popjs/util';
+import { isMobile } from '@popjs/util';
 ```
 
 如果你是requirejs环境
 
 ```js
-requirejs(['node_modules/@popjs/util/dist/index.aio.js'], function (base) {
+requirejs(['node_modules/@popjs/util/dist/index.aio.js'], function(base) {
     // xxx
 })
 ```
@@ -45,5 +43,19 @@ requirejs(['node_modules/@popjs/util/dist/index.aio.js'], function (base) {
 如果你是浏览器环境
 
 ```html
+
 <script src="node_modules/@popjs/util/dist/index.aio.js"></script>
+```
+
+## 包的发布
+
+发布之前需要生成 ts 文件
+
+```
+yarn doc
+```
+
+```
+nrm use npm
+yarn publish
 ```
