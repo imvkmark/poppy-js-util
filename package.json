@@ -5,6 +5,7 @@
     "main": "dist/index.js",
     "jsnext:main": "dist/index.esm.js",
     "module": "dist/index.esm.js",
+    "typings": "dist/index.d.ts",
     "sideEffects": false,
     "scripts": {
         "clean": "rimraf ./dist",
@@ -29,10 +30,10 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "git://github.com/dadi-cn/popjs-util.git"
+        "url": "git://github.com/imvkmark/popjs-util.git"
     },
     "bugs": {
-        "url": "https://github.com/dadi-cn/popjs-util/issues"
+        "url": "https://github.com/imvkmark/popjs-util/issues"
     },
     "files": [
         "/dist",
@@ -74,7 +75,7 @@
         "@babel/runtime": "^7.1.2",
         "lodash-es": "^4.17.15"
     },
-    "homepage": "https://github.com/dadi-cn/popjs-util#readme",
+    "homepage": "https://github.com/imvkmark/popjs-util#readme",
     "directories": {
         "test": "test"
     }
