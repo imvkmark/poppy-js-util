@@ -11,9 +11,9 @@ import { each, forEach } from 'lodash-es';
  * @param {string|array} key
  * @param val
  * @param decoration
- * @returns {string|any}
+ * @returns
  */
-export function localStore(key, val, decoration = function(key) {
+export function localStore(key: any, val: any, decoration = function (key: any) {
     return key;
 }) {
     /**
@@ -21,7 +21,7 @@ export function localStore(key, val, decoration = function(key) {
      * @param {string} key 缓存key
      * @param {string} data JSON.stringify后的数据
      */
-    let _localStorageOverflow = (key, data) => {
+    let _localStorageOverflow = (key: any, data: any) => {
         try {
             localStorage.setItem(key, data);
         } catch (e) { // 当缓存溢出，则清空后继续保存
@@ -37,7 +37,7 @@ export function localStore(key, val, decoration = function(key) {
     // 本地数据存储封装，没有过期时间限制，仅限于该页面的协议
     if (val === null) {
         if (typeof key === 'object') {
-            each(key, function(ele, idx) {
+            each(key, function (ele, idx) {
                 _localStorageOverflow(decoration(idx), ele); // 存储数据
             });
             return;
@@ -71,10 +71,10 @@ export function localStore(key, val, decoration = function(key) {
  * @param key 对象, 批量设置
  * @param val 有值:设置; 无值: 获取; null, 删除;
  */
-export function sessionStore(key, val) {  // 本地数据存储封装，随页面回话结束而结束，仅限于该页面的协议
+export function sessionStore(key: any, val: any) {  // 本地数据存储封装，随页面回话结束而结束，仅限于该页面的协议
     if (val === null) {
         if (typeof key === 'object') {
-            forEach(key, function(ele, idx) {
+            forEach(key, function (ele, idx) {
                 sessionStorage.setItem(idx, ele);
             });
             return;

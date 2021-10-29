@@ -4,23 +4,23 @@
  * based on  http://andylangton.co.uk/articles/javascript/get-viewport-size-javascript/
  * @returns {{width: *, height: *}}
  */
-export const viewport = function() {
+export const viewport = function () {
     if (typeof window === 'undefined' || typeof document === 'undefined') {
         return {
-            width : 0,
-            height : 0
+            width: 0,
+            height: 0
         };
     }
     let e = window,
         a = 'inner';
-    if (!( 'innerWidth' in window )) {
+    if (!('innerWidth' in window)) {
         a = 'client';
         e = document.documentElement || document.body;
     }
 
     return {
-        width : e[a + 'Width'],
-        height : e[a + 'Height']
+        width: e[a + 'Width'],
+        height: e[a + 'Height']
     };
 };
 

@@ -3,7 +3,7 @@
  * @returns {{hasClass: *, addClass: *, removeClass: *, toggleClass: toggleClass, has: *, add: *, remove: *, toggle: toggleClass}}
  */
 export function classie() {
-    function classReg(className) {
+    function classReg(className: string) {
         return new RegExp('(^|\\s+)' + className + '(\\s+|$)');
     }
 
@@ -12,25 +12,25 @@ export function classie() {
     let hasClass, addClass, removeClass;
 
     if ('classList' in document.documentElement) {
-        hasClass = function(elem, c) {
+        hasClass = function (elem, c) {
             return elem.classList.contains(c);
         };
-        addClass = function(elem, c) {
+        addClass = function (elem, c) {
             elem.classList.add(c);
         };
-        removeClass = function(elem, c) {
+        removeClass = function (elem, c) {
             elem.classList.remove(c);
         };
     } else {
-        hasClass = function(elem, c) {
+        hasClass = function (elem, c) {
             return classReg(c).test(elem.className);
         };
-        addClass = function(elem, c) {
+        addClass = function (elem, c) {
             if (!hasClass(elem, c)) {
                 elem.className = elem.className + ' ' + c;
             }
         };
-        removeClass = function(elem, c) {
+        removeClass = function (elem, c) {
             elem.className = elem.className.replace(classReg(c), ' ');
         };
     }
@@ -42,14 +42,14 @@ export function classie() {
 
     return {
         // full names
-        hasClass : hasClass,
-        addClass : addClass,
-        removeClass : removeClass,
-        toggleClass : toggleClass,
+        hasClass: hasClass,
+        addClass: addClass,
+        removeClass: removeClass,
+        toggleClass: toggleClass,
         // short names
-        has : hasClass,
-        add : addClass,
-        remove : removeClass,
-        toggle : toggleClass
+        has: hasClass,
+        add: addClass,
+        remove: removeClass,
+        toggle: toggleClass
     };
 }
