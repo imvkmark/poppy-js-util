@@ -3,7 +3,7 @@
  * @returns {{hasClass: *, addClass: *, removeClass: *, toggleClass: toggleClass, has: *, add: *, remove: *, toggle: toggleClass}}
  */
 export function classie() {
-    function classReg(className: string) {
+    function classReg(className) {
         return new RegExp('(^|\\s+)' + className + '(\\s+|$)');
     }
 

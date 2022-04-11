@@ -1,8 +1,8 @@
 const expect = require('expect.js');
 
 // js 测试源文件
-const {browser, isUrl, buildUrl, domain, toFloat} = require('../src/index.js');
-const {isAndroid, isIOS, isDesktop} = require('../src/index.js');
+const { browser, isUrl, buildUrl, domain, toFloat } = require('../src/index.js');
+const { isAndroid, isIOS, isDesktop } = require('../src/index.js');
 
 
 describe('单元测试', function() {
@@ -68,7 +68,7 @@ describe('单元测试', function() {
         });
 
         it('BuildUrl', function() {
-            expect(buildUrl('http://www.baidu.com', {a : 1})).to.equal('http://www.baidu.com?a=1');
+            expect(buildUrl('http://www.baidu.com', { a: 1 })).to.equal('http://www.baidu.com?a=1');
             expect(buildUrl()).to.equal('');
         });
 
