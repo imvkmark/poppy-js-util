@@ -32,7 +32,7 @@ export const isNumeric = (n: any) => {
  * @param str
  * @returns {boolean|Array|{index: number, input: string}}
  */
-export const isMobile = function (str: string) {
+export const isMobile = (str: string) => {
     let phone_number = str.replace(/\(|\)|\s+|/g, '');
     return phone_number.length > 10 && phone_number.match(/^(\d{1,5}-)?1[3|4|5|6|8|7|9][0-9]\d{4,8}$/);
 };
@@ -204,7 +204,7 @@ export const isDate = (value: any) => {
  * @param {string} param 字符参数
  * @returns {boolean}
  */
-export function isNumber(param: string) {
+export const isNumber = (param: string) => {
     let regExp = /[^0-9]/;
     return !regExp.test(param);
 }

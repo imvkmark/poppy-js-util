@@ -11,7 +11,6 @@ import MD5 from "crypto-js/md5";
 
 //region 尺寸MEDIA
 
-
 const sizes = ['xs', 'sm', 'md', 'lg', 'xl'];
 
 /**
@@ -155,7 +154,7 @@ export const debugTime = () => {
  * @param prefix
  * @returns {string}
  */
-export function uniqueId(prefix?: string) {
+export const uniqueId = (prefix?: string) => {
     let _pre = (typeof prefix == 'undefined') ? '' : prefix;
     return _pre + Math.floor(Math.random() * (new Date()).getTime());
 }
@@ -192,7 +191,7 @@ export const localStore = (key: any, val?: any) => {
     // 本地数据存储封装，没有过期时间限制，仅限于该页面的协议
     if (val === null) {
         if (typeof key === 'object') {
-            each(key, function (ele, idx) {
+            each(key,  (ele, idx) => {
                 _localStorageOverflow(idx, ele); // 存储数据
             });
             return;
@@ -229,7 +228,7 @@ export const localStore = (key: any, val?: any) => {
 export const sessionStore = (key: any, val?: any) => {  // 本地数据存储封装，随页面回话结束而结束，仅限于该页面的协议
     if (val === null) {
         if (typeof key === 'object') {
-            forEach(key, function (ele, idx) {
+            forEach(key,  (ele, idx) => {
                 sessionStorage.setItem(idx, ele);
             });
             return;

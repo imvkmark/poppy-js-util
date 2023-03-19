@@ -61,7 +61,7 @@ export const base64Decode = (data: string) => {
  */
 export const queryEncode: any = (data: object) => {
     let encode = {};
-    map(data, function (val, key) {
+    map(data, (val, key) => {
         let valEncode;
         if (isObject(val)) {
             valEncode = '--wb--' + base64Encode(JSON.stringify(val));
@@ -79,7 +79,7 @@ export const queryEncode: any = (data: object) => {
  */
 export const queryDecode: any = (data: object) => {
     let decode = {};
-    map(data, function (val, key) {
+    map(data, (val, key) => {
         let valDecode: any = val;
         if (String(val).indexOf('--wb--') === 0) {
             valDecode = JSON.parse(base64Decode(String(val).substring(6)));
@@ -97,7 +97,7 @@ export const queryDecode: any = (data: object) => {
 export const sprintf = (...args: string[] | any[]) => {
     let replace = Array.prototype.slice.call(args, 1);
     let format = args[0];
-    return format.replace(/{(\d+)}/g, function (match: string, number: number) {
+    return format.replace(/{(\d+)}/g, (match: string, number: number) => {
         return typeof replace[number] != 'undefined'
             ? replace[number]
             : match
@@ -128,7 +128,7 @@ export const stripTags = (str: string) => {
  * 去除空白，包括换行和空格
  * @param {string} str 字符
  */
-export function trimAll(str: string) {
+export const trimAll = (str: string) => {
     //去掉所有的换行符
     str = str.replace(/\r\n/g, '');
     str = str.replace(/\n/g, '');
@@ -139,6 +139,6 @@ export function trimAll(str: string) {
 }
 
 
-export function removerBlank(str: string) {
+export const removerBlank = (str: string) => {
     return trimAll(str)
 }

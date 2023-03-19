@@ -4,8 +4,8 @@ import { strAfter, strBefore, strRandom } from "./string";
  * 方便添加维护类
  * @returns {{hasClass: *, addClass: *, removeClass: *, toggleClass: toggleClass, has: *, add: *, remove: *, toggle: toggleClass}}
  */
-export function classie() {
-    function classReg(className: string) {
+export const classie = () => {
+    const classReg = (className: string) => {
         return new RegExp('(^|\\s+)' + className + '(\\s+|$)');
     }
 
@@ -14,30 +14,30 @@ export function classie() {
     let hasClass: any, addClass: any, removeClass: any;
 
     if ('classList' in document.documentElement) {
-        hasClass = function (elem: Element, c: string) {
+        hasClass = (elem: Element, c: string) => {
             return elem.classList.contains(c);
         };
-        addClass = function (elem: Element, c: string) {
+        addClass = (elem: Element, c: string) => {
             elem.classList.add(c);
         };
-        removeClass = function (elem: Element, c: string) {
+        removeClass = (elem: Element, c: string) => {
             elem.classList.remove(c);
         };
     } else {
-        hasClass = function (elem: Element, c: string) {
+        hasClass = (elem: Element, c: string) => {
             return classReg(c).test(elem.className);
         };
-        addClass = function (elem: Element, c: string) {
+        addClass = (elem: Element, c: string) => {
             if (!hasClass(elem, c)) {
                 elem.className = elem.className + ' ' + c;
             }
         };
-        removeClass = function (elem: Element, c: string) {
+        removeClass = (elem: Element, c: string) => {
             elem.className = elem.className.replace(classReg(c), ' ');
         };
     }
 
-    function toggleClass(elem: Element, c: string) {
+    const toggleClass = (elem: Element, c: string) => {
         let fn = hasClass(elem, c) ? removeClass : addClass;
         fn(elem, c);
     }
@@ -72,10 +72,10 @@ export const base64ToFile = (url: string) => {
     let mimeType = 'image/' + extension;
 
     return (fetch(url)
-            .then(function (res) {
+            .then((res) => {
                 return res.arrayBuffer();
             })
-            .then(function (buf) {
+            .then((buf) => {
                 return new File([buf], filename, { type: mimeType });
             })
     );

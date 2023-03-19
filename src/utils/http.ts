@@ -9,7 +9,7 @@ import { strBefore } from "./string";
  * @deprecated 1.0
  * @see httpBuildQuery
  */
-export function buildUrl(url: string = '', params = {}) {
+export const buildUrl = (url: string = '', params = {}) => {
     let str = '';
     for (let key in params) {
         str += key + '=' + get(params, key, '');
@@ -53,7 +53,7 @@ export const queryString = (name: string, from: string = '') => {
  * 解析url
  * @param {string} url 当前网址url
  */
-export function parseQueryString(url: string) {
+export const parseQueryString = (url: string) => {
     let obj = {},
         kv,
         key,
@@ -80,9 +80,9 @@ export const httpBuildQuery = (url: string = '', params: any = {}) => {
         urlComp = `${url}?`;
     }
     let usp = new URLSearchParams();
-    each(params, function (val, idx) {
+    each(params,  (val, idx) => {
         if (isArray(val)) {
-            each(val, function (_val) {
+            each(val,  (_val) => {
                 usp.append(idx + '[]', _val)
             })
         } else {

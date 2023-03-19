@@ -10,13 +10,13 @@
         "include": [
             "./src/"
         ],
-        "includePattern": ".+\\.ts(doc|x)?$"
+        "includePattern": ".+\\.ts$"
     },
     "plugins": [],
     "opts": {
         "template": "./node_modules/ink-docstrap/template",
         "encoding": "utf8",
-        "destination": "./docs/api",
+        "destination": "./docs",
         "recurse": true
     },
     "templates": {
