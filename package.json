@@ -1,7 +1,7 @@
 {
     "name": "poppy-util",
     "type": "module",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "Poppy Js Framework Util Library",
     "browser": "dist/poppy-util.iife.js",
     "module": "dist/poppy-util.js",
@@ -10,7 +10,7 @@
     "scripts": {
         "test": "vitest",
         "test:ui": "vitest --ui",
-        "release": "nrm use npm && npm publish --no-git-checks && cnpm sync poppy-util && nrm use taobao",
+        "release": "tsc && nrm use npm && npm publish --no-git-checks && cnpm sync poppy-util && nrm use taobao",
         "build": "vite build"
     },
     "author": "imvkmark",
