@@ -1,26 +1,26 @@
 {
-	"tags": {
-		"allowUnknownTags": true,
-		"dictionaries": [
-			"jsdoc",
-			"closure"
-		]
-	},
-	"source": {
-		"include": [
-			"./src/"
-		],
-		"includePattern": ".+\\.js(doc|x)?$"
-	},
-	"plugins": [],
-	"opts": {
-		"template": "./node_modules/ink-docstrap/template",
-		"encoding": "utf8",
-		"destination": "./docs/api",
-		"recurse": true
-	},
-	"templates": {
-		"referenceTitle": "PopJs Util ApiDocs",
-		"outputSourceFiles": false
-	}
+    "tags": {
+        "allowUnknownTags": true,
+        "dictionaries": [
+            "jsdoc",
+            "closure"
+        ]
+    },
+    "source": {
+        "include": [
+            "./src/"
+        ],
+        "includePattern": ".+\\.ts(doc|x)?$"
+    },
+    "plugins": [],
+    "opts": {
+        "template": "./node_modules/ink-docstrap/template",
+        "encoding": "utf8",
+        "destination": "./docs/api",
+        "recurse": true
+    },
+    "templates": {
+        "referenceTitle": "PopJs Util ApiDocs",
+        "outputSourceFiles": false
+    }
 }

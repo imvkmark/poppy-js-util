@@ -24,6 +24,10 @@
         "skipLibCheck": true,
         "noImplicitThis": true,
         "esModuleInterop": true,
-        "outDir": "./dist"
+        "outDir": "./dist",
+        // 确保静态检查不会出错
+        "types": [
+            "vitest/globals"
+        ]
     }
 }
