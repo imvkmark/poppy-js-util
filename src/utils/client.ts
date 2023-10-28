@@ -1,4 +1,4 @@
-import { includes } from "lodash-es";
+import { get, includes } from "lodash-es";
 import UAParser from "ua-parser-js";
 
 
@@ -105,7 +105,7 @@ export const browser = () => {
  * @deprecated 1.0
  * @removed 2.0
  */
-export const isInWebView = () => {
+export const isInWebView = (): boolean => {
     let ua = navigator.userAgent.toLowerCase();
     if (ua.match(/MicroMessenger/i) !== null) { // 微信浏览器判断
         return false;
@@ -130,7 +130,7 @@ export const isInWebView = () => {
  * check for device touch support
  * @returns {boolean}
  */
-export const isTouchDevice = () => {
+export const isTouchDevice = (): boolean => {
     try {
         document.createEvent('TouchEvent');
         return true;
@@ -161,6 +161,15 @@ export const viewport = () => {
     }
 };
 
+export const matchUa = (ua: string, str: string) => {
+    let reg = new RegExp(`.*\\s(?<name>${str}.*?)$`);
+    let name = '';
+    let m;
+    if ((m = reg.exec(ua)) !== null) {
+        name = get(m, 'groups.name', '');
+    }
+    return name;
+}
 
 /**
  * 全屏

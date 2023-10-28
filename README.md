@@ -37,3 +37,16 @@ Poppy Framework Js Util Packages
 [] auto generate document
 
 [popjs-util](https://github.com/imvkmark/popjs-util)
+
+## Versions
+
+### 0.1.0
+
+- 将 emitter 移除
+- 移除 less / 使用 tailwind css
+
+### 0.0.x
+
+- ua
+- axios
+- emit

@@ -1,9 +1,10 @@
 {
     "name": "poppy-util",
     "type": "module",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "description": "Poppy Js Framework Util Library",
     "browser": "dist/poppy-util.iife.js",
+    "main": "dist/poppy-util.js",
     "module": "dist/poppy-util.js",
     "typings": "dist/index.d.ts",
     "sideEffects": false,
@@ -11,7 +12,12 @@
         "test": "vitest",
         "test:ui": "vitest --ui",
         "release": "tsc && nrm use npm && npm publish --no-git-checks && cnpm sync poppy-util && nrm use taobao",
-        "build": "vite build"
+        "build": "vite build",
+        "typedoc": "typedoc src/index.ts",
+        "docs:dev": "vitepress",
+        "docs:build": "vitepress build",
+        "docs:serve": "vitepress serve",
+        "docs:preview": "vitepress preview docs"
     },
     "author": "imvkmark",
     "license": "MIT",
@@ -42,15 +48,16 @@
         "@types/mocha": "^10.0.1",
         "@types/node": "^18.15.3",
         "@types/ua-parser-js": "^0.7.36",
-        "@vitest/ui": "^0.29.3",
+        "@vitest/ui": "^0.34.6",
         "chai": "^4.3.7",
-        "happy-dom": "^8.9.0",
+        "happy-dom": "^12.10.1",
         "mocha": "^10.2.0",
-        "poppy-util": "link:.",
-        "typescript": "^4.9",
+        "typedoc": "^0.25.2",
+        "typescript": "^5.2.2",
         "vite": "^4.2.0",
-        "vite-plugin-static-copy": "^0.13.1",
-        "vitest": "^0.29.3"
+        "vite-plugin-static-copy": "^0.17.0",
+        "vitepress": "1.0.0-rc.24",
+        "vitest": "^0.34.6"
     },
     "homepage": "https://github.com/imvkmark/poppy-js-util#readme",
     "directories": {
