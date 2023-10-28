@@ -1,42 +1,61 @@
 import { get, includes } from "lodash-es";
-import UAParser from "ua-parser-js";
+import { UAParser } from "ua-parser-js";
 
 
-const ua = (new UAParser());
+/**
+ * Ua 对象
+ * @param userAgent
+ */
+const uaObject = (userAgent: string = '') => {
+    return new UAParser(userAgent)
+}
 
 /**
  * 获取系统操作平台
  */
-export const sysOs = (): string => {
-    return String(ua.getOS().name);
+export const sysOs = (userAgent: string = ''): string => {
+    return String(uaObject(userAgent).getOS().name);
 }
 
 /**
  * 返回系统版本号
  */
-export const sysVersion = (): string => {
-    return String(ua.getOS().version);
+export const sysVersion = (userAgent: string = ''): string => {
+    return String(uaObject(userAgent).getOS().version);
 }
 
 /**
  * 设备型号, 如果是浏览器需要传递浏览器的类型和版本号
  */
-export const sysDevice = (): string => {
+export const sysDevice = (userAgent: string = ''): string => {
+    let ua = uaObject(userAgent);
     return (ua.getBrowser().name + '/' + ua.getBrowser().version)
 }
 
 /**
  * 设备 Agent 信息
+
  */
-export const sysUserAgent = (): string => {
-    return ua.getUA()
+/**
+ * 获取UA
+ * @param userAgent 0.1.0 支持传入 UA
+ * @since 0.0.1
+ */
+export const sysUserAgent = (userAgent: string = ''): string => {
+    let strUa = userAgent;
+    if (typeof window !== 'undefined') {
+        strUa = window.navigator.userAgent;
+    }
+    return strUa
 }
 
 /**
  * 是否是微信浏览器
+ * @since 0.1.0
  */
-export const isWechat = (): boolean => {
-    return ua.getBrowser().name === 'WeChat';
+export const isWechat = (userAgent: string = ''): boolean => {
+    let ua = uaObject(userAgent);
+    return ua.getBrowser().name === 'WeChat'
 };
 
 
@@ -44,16 +63,19 @@ export const isWechat = (): boolean => {
  * 是否是 Android 系统
  * @returns {boolean}
  */
-export const isAndroid = (): boolean => {
+export const isAndroid = (userAgent: string = ''): boolean => {
+    let ua = uaObject(userAgent);
     let name = ua.getOS().name
     return includes(['HarmonyOS', 'Android'], name);
 }
+
 
 /**
  * 是否是 ios 系统
  * @returns {boolean}
  */
-export const isIOS = (): boolean => {
+export const isIOS = (userAgent: string = ''): boolean => {
+    let ua = uaObject(userAgent);
     return ua.getOS().name === 'iOS';
 }
 
@@ -61,7 +83,8 @@ export const isIOS = (): boolean => {
  * 判定浏览器是否是桌面端
  * @returns {boolean}
  */
-export const isDesktopClient = () => {
+export const isDesktopClient = (userAgent: string = ''): boolean => {
+    let ua = uaObject(userAgent);
     return !includes(['iOS', 'iPadOS', 'Android', 'HarmonyOS'], ua.getOS().name)
 }
 
@@ -86,7 +109,7 @@ export const browser = () => {
     } else {
         userAgent = '';
     }
-
+    let ua = uaObject(userAgent);
     return {
         version: ua.getBrowser().version,
         chrome: ua.getBrowser().name === 'Chrome',
@@ -100,28 +123,13 @@ export const browser = () => {
 
 
 /**
- * 判定是否在 WebView 内,此函数可能无效
+ * 判定是否在 WebView 内(需要内置)
  * @returns {boolean}
- * @deprecated 1.0
- * @removed 2.0
+ * @since 0.1.0
  */
-export const isInWebView = (): boolean => {
-    let ua = navigator.userAgent.toLowerCase();
-    if (ua.match(/MicroMessenger/i) !== null) { // 微信浏览器判断
-        return false;
-    } else if (ua.match(/QQ/i) !== null) { // QQ浏览器判断
-        return false;
-    } else if (ua.match(/WeiBo/i) !== null) {
-        return false;
-    } else {
-        if (ua.match(/Android/i) != null) {
-            return ua.match(/browser/i) == null;
-        } else if (ua.match(/iPhone/i) != null) {
-            return ua.match(/safari/i) == null;
-        } else {
-            return (ua.match(/macintosh/i) == null && ua.match(/windows/i) == null);
-        }
-    }
+export const isInWebView = (uaKey: string, userAgent: string = ''): boolean => {
+    let ua = sysUserAgent(userAgent);
+    return uaCustomMatch(ua, uaKey) !== '';
 }
 
 
@@ -129,6 +137,7 @@ export const isInWebView = (): boolean => {
  * 是否是触摸设备
  * check for device touch support
  * @returns {boolean}
+ * @since 0.0.1
  */
 export const isTouchDevice = (): boolean => {
     try {
@@ -146,7 +155,7 @@ export const isTouchDevice = (): boolean => {
  * based on  http://andylangton.co.uk/articles/javascript/get-viewport-size-javascript/
  * @returns {{width: *, height: *}}
  */
-export const viewport = () => {
+export const viewport = (): object => {
     if (window.innerWidth) {
         return {
             width: window.innerWidth,
@@ -161,15 +170,39 @@ export const viewport = () => {
     }
 };
 
-export const matchUa = (ua: string, str: string) => {
-    let reg = new RegExp(`.*\\s(?<name>${str}.*?)$`);
+
+/**
+ * 根据 ua 的关键词拆解出来 ua 字符串
+ * @param userAgent
+ * @param uaKey
+ * @since 0.1.0
+ */
+export const uaCustomMatch = (userAgent: string, uaKey: string): string => {
+    let reg = new RegExp(`.*\\s(?<name>${uaKey}.*?)(\\s|$)`, 'i');
     let name = '';
     let m;
-    if ((m = reg.exec(ua)) !== null) {
+    if ((m = reg.exec(userAgent)) !== null) {
         name = get(m, 'groups.name', '');
     }
     return name;
 }
+
+
+/**
+ * 自定义 ua 的拆分
+ * @param str
+ * @since 0.1.0
+ */
+export const uaSplit = (str: string): object => {
+    let arrStr = str.split('/');
+    return {
+        name: String(arrStr[0]),
+        version: typeof arrStr[1] === 'undefined' ? '' : arrStr[1],
+        channel: typeof arrStr[2] === 'undefined' ? '' : arrStr[2],
+        isApprove: typeof arrStr[1] === 'undefined' ? 'N' : (arrStr[3] === 'Y' ? 'Y' : 'N'),
+    }
+}
+
 
 /**
  * 全屏

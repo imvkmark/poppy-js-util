@@ -6,6 +6,7 @@ coverage
 node_modules
 yarn.lock
 dist
+docs
 .nyc_output
 yarn-error.log
 pnpm-lock.yaml

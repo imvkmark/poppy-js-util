@@ -1,7 +1,7 @@
 {
     "name": "poppy-util",
     "type": "module",
-    "version": "0.0.5",
+    "version": "0.1.0",
     "description": "Poppy Js Framework Util Library",
     "browser": "dist/poppy-util.iife.js",
     "main": "dist/poppy-util.js",
@@ -12,6 +12,7 @@
         "test": "vitest",
         "test:ui": "vitest --ui",
         "release": "tsc && nrm use npm && npm publish --no-git-checks && cnpm sync poppy-util && nrm use taobao",
+        "release-codeup": "tsc && npm publish --no-git-checks && cnpm sync poppy-util",
         "build": "vite build",
         "typedoc": "typedoc src/index.ts",
         "docs:dev": "vitepress",
@@ -39,7 +40,7 @@
         "crypto-js": "^4.1.1",
         "lodash-es": "^4.17.21",
         "mitt": "^3.0.0",
-        "ua-parser-js": "^1.0.2"
+        "ua-parser-js": "2.0.0-beta.1"
     },
     "devDependencies": {
         "@types/chai": "^4.3.4",
